@@ -2,6 +2,8 @@
 
 This is a post which helps and guides you __step-by-step__ to create an awesome, tweet-worthy *Online Collaboration Text Editor*
 
+Try [Collaborative Text Editor](https://collaborative-text-editor.herokuapp.com). Once you open a unique URL will be generated which you can share with your friends and Whoaaaaa! Collaborate away!
+
 ## Let's add the skeleton
 
 - Create a super simple `index.html` and add a header and a div for our doc!
