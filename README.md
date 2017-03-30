@@ -4,7 +4,7 @@ This is a post which helps and guides you **step-by-step** to create an awesome,
 
 *This is a glimpse of what we will be making at the end of this post.*
 
-![](https://canvas-files-prod.s3.amazonaws.com/uploads/80eca662-e28c-478f-9125-b8a942825398/demo.gif)
+![](https://dl.dropboxusercontent.com/s/on1kww90bp5rm8d/online-collaboration-text-editor-demo.gif)
 
 Try [Collaborative Text Editor](https://collaborative-text-editor.herokuapp.com). Open this link, and share with your friends and Whoaaaaa! Collaborate away!
 
@@ -37,7 +37,7 @@ Try [Collaborative Text Editor](https://collaborative-text-editor.herokuapp.com)
 ```
 - Create a CSS file, [app.css](https://github.com/ankeetmaini/collaborative-text-editor/blob/7c8271eb0b018f2768a5de0a12c28bc1859fbacb/css/app.css) and link it in the above HTML to start out with a pretty page!
  
-![](https://canvas-files-prod.s3.amazonaws.com/uploads/3852fd85-bd5d-4ac9-9c41-29319cd2e7dd/starter-template.png)
+![](https://dl.dropboxusercontent.com/s/vyb72saga8xbhes/online-collaboration-text-starter-template.png)
 
 # Let's make it a little more functional!
 
@@ -50,7 +50,7 @@ doc.focus();
 ```
 - And with that our doc is editable, go ahead and type. It even supports **Ctrl+B**, **Ctrl+I** to make text **bold** or *italic*
  
-![](https://canvas-files-prod.s3.amazonaws.com/uploads/036ed349-bcd6-41a9-8744-736a2e491354/bare-bones-editor.gif)
+![](https://dl.dropboxusercontent.com/s/lx298eb5qfs6gtg/online-collaboration-text-bare-bones-editor.gif)
 
 # Make it **awesome** by adding online collaboration. Woot!
 
@@ -127,7 +127,7 @@ doc.addEventListener('input', triggerChange);
 - To use private channels, you must be authenticated. [Pusher makes writing an auth server very easy](https://pusher.com/docs/authenticating_users#authEndpoint). I used their NodeJS template [here](server.js).
 - With that, we have our first version of Collaborative Text Editor **ready**! Whistles :P
  
-![](https://canvas-files-prod.s3.amazonaws.com/uploads/b3da0f15-7d96-45f0-98dd-81574915379d/collab-edit.gif)
+![](https://dl.dropboxusercontent.com/s/1pa8g5a44owf54q/online-collaboration-text-collab-edit.gif)
 
 ## Brownie points!
 
