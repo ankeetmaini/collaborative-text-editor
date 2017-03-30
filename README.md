@@ -91,7 +91,7 @@ doc.focus();
 - Connect to your app by calling the `Pusher` constructor with your `app key` as shown in the below line
  
 ``` js
-var pusher = new Pusher('2dfd84a287faf2636372');
+var pusher = new Pusher(<INSERT_PUSHER_APP_KEY_HERE>);
 ```
 - Next, we need to subscribe to the changes which happen to our document
 - **With Pusher** these are called `channels`. Every new document will be a new `channel` for us. Channel is represented by a `string`, in our case it'll be the unique Id we generated above. [Read more about the awesome channels here.](https://pusher.com/docs/client_api_guide/client_channels)
@@ -105,7 +105,7 @@ channel.bind('some-fun-event', function(data) {
 ```
 - Since, we want to listen all the events triggered for a document by all the users, we can do that directly without the need to route them to a server first. Enter [Pusher's Client Events](https://pusher.com/docs/client_api_guide/client_events#trigger-events)
 - You need to enable `Client Events` in your `Settings` tab on [Pusher's Dashboard](https://dashboard.pusher.com/)
-- Also client events should start with `client-`, and thus our event name **client-text-edit**;
+- `Client Events` should start with `client-`, and thus our event name **client-text-edit**. Also `Client Events` have a number of restrictions that are important to know about while creating your awesome app. [Read about them here.](https://pusher.com/docs/client_api_guide/client_events#trigger-events)
 - With these two lines, we've set our app listening to any change made on the doc by any user!
  
 ``` js
@@ -126,12 +126,17 @@ doc.addEventListener('input', triggerChange);
 - All of this is wrapped in a `Promise` as you can only trigger changes to the channel when you've successfully subscribed to the channel itself!
 - To use private channels, you must be authenticated. [Pusher makes writing an auth server very easy](https://pusher.com/docs/authenticating_users#authEndpoint). I used their NodeJS template [here](server.js).
 - With that, we have our first version of Collaborative Text Editor **ready**! Whistles :P
+- This `demo app` doesn't account for cases like concurrent edits at the same place in the document. For a *production-like* app you'd want to use [Operational Transformation](http://operational-transformation.github.io/) to solve the problem.
  
 ![](https://dl.dropboxusercontent.com/s/1pa8g5a44owf54q/online-collaboration-text-collab-edit.gif)
 
 ## Brownie points!
 
 - To make this more awesome we can use [Pusher's Presence channels](https://pusher.com/docs/client_api_guide/client_presence_channels) which can even give information about the identity of the users who are editing your app!
+ 
+## Next Steps
+
+- Add support for code highlighting for your choice of language and you've a collaborative code editor ready, which you can use to solve a fun puzzle or for a remote interview!
  
 ## PS: [Pusher's realtime capability FTW!](https://pusher.com/)
 
