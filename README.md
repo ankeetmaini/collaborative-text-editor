@@ -2,6 +2,8 @@
 
 This is a post which helps and guides you **step-by-step** to create an awesome, tweet-worthy *Online Collaboration Text Editor*
 
+You can view a full tutorial [here](https://pusher.com/tutorials/collaborative-text-editor-javascript/)
+
 *This is a glimpse of what we will be making at the end of this post.*
 
 ![](https://dl.dropboxusercontent.com/s/on1kww90bp5rm8d/online-collaboration-text-editor-demo.gif)
