@@ -6,14 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Collaborative Text Editor</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <link href="/css/app.css" rel="stylesheet"></link>
+    <link href="/css/app.css" rel="stylesheet">
   </head>
   <body>
     <header class="header">
       <h1 class="header__h1">Online Collab Edit</h1>
+      
     </header>
     <div class="doc">
       <div class="doc__background-ribbon"></div>
+        <div class="members_block">
+            <ul id="members"></ul>
+            <h1 id="usersOnline"></h1>
+        </div>
+        
       <div id="doc" class="doc__text-editor"></div>
     </div>
     <script src="https://js.pusher.com/4.0/pusher.min.js"></script>
