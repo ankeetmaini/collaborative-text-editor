@@ -35,3 +35,24 @@ body {
   top: -150px;
   font-size: 24px;
 }
+
+.members_block {
+    position: relative;
+    float: right;
+    width: 16%;
+    border: 2px double #ddd;
+    margin: 10px;
+}
+.members_block h1{
+    float: right;
+    text-shadow: 1px 1px 10px #3F51B5;
+    color: white;
+    margin-right: 10%;
+}
+.members_block ul {
+    padding: 0px 20px 0px 20px;
+}
+.members_block ul li{
+    list-style-type: none;
+    border-bottom: 1px solid #ddd;
+}

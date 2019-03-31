@@ -15,9 +15,21 @@
     return;
   }
 
+  //change the codeForTest variable in an actual application, since each user must have a unique code.
+  var codeForTest = Math.random().toString().substring(2);
+  var userName = "user-" + codeForTest; 
+    
   return new Promise(function (resolve, reject) {
     // subscribe to the changes via Pusher
-    var pusher = new Pusher(<INSERT_PUSHER_APP_KEY_HERE>);
+    var pusher = new Pusher('INSERT_PUSHER_APP_KEY_HERE', {
+      cluster: 'INSERT_YOUR_CLUSTER_HERE',
+      forceTLS: true,
+      auth: {
+        params: {
+          user: userName
+        }
+      }
+    });
     var channel = pusher.subscribe(id);
     channel.bind('client-text-edit', function(html) {
       // save the current position
@@ -26,9 +38,27 @@
       // set the previous cursor position
       setCaretPosition(doc, currentCursorPosition);
     });
-    channel.bind('pusher:subscription_succeeded', function() {
+    channel.bind('pusher:subscription_succeeded', function(members) {
+
+      updateMembersCount(members.count);
+        
+      members.each(function(member) {
+        addMember(member);
+      });
+        
       resolve(channel);
+    })
+      
+    channel.bind('pusher:member_added', function(member) {
+      addMember(member);
+      updateMembersCount(channel.members.count);
     });
+    channel.bind('pusher:member_removed', function(member) {
+      removeMember(member);
+      updateMembersCount(channel.members.count);
+    });
+      
+      
   }).then(function (channel) {
     function triggerChange (e) {
       channel.trigger('client-text-edit', e.target.innerHTML);
@@ -39,7 +69,7 @@
 
   // a unique random key generator
   function getUniqueId () {
-    return 'private-' + Math.random().toString(36).substr(2, 9);
+    return 'presence-' + Math.random().toString(36).substr(2, 9);
   }
 
   // function to get a query param's value
@@ -98,5 +128,23 @@
       }
     }
     return pos; // needed because of recursion stuff
+  }
+  function addMember(member){
+    var node = document.createElement("li");
+    var textnode = document.createTextNode(member.info.name);
+    node.setAttribute("id",member.id);
+    node.appendChild(textnode);
+    document.getElementById('members').appendChild(node);
+       
+  } 
+
+  function removeMember (member) {
+    var node = document.getElementById(member.id);
+    if (node.parentNode) {
+        node.parentNode.removeChild(node);
+    }
+  }
+  function updateMembersCount(member) {
+    document.getElementById('usersOnline').innerHTML = member;
   }
 })();
